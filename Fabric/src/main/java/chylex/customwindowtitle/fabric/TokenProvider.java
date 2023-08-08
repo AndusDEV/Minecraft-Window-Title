@@ -14,4 +14,12 @@ final class TokenProvider implements CommonTokenProvider {
 			.getVersion()
 			.getFriendlyString();
 	}
+
+	public static String getFabricVersion() {
+		return FabricLoader.getInstance().getModContainer("fabricloader")
+				.orElseThrow(() -> new RuntimeException("FabricLoader version not found"))
+				.getMetadata()
+				.getVersion()
+				.getFriendlyString();
+	}
 }
